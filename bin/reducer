@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+const readline = require('readline');
+const rl = readline.createInterface({
+    input : process.stdin
+});
+
+var current, counter = 0;
+
+function print(){
+    console.log(current, counter);
+}
+
+function countWord(word) {
+    if(typeof current === 'undefined'){
+        current = word;
+        counter = 1;
+        return;
+    }
+    if(current === word){
+        counter++;
+        return;
+    }
+    print();
+    current = word;
+    counter = 1;
+}
+
+process.stdin.on('end',function(){
+    print();
+});
+
+rl.on('line', countWord);

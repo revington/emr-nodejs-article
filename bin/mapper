@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+const readline = require('readline');
+const rl = readline.createInterface({
+    input : process.stdin
+});
+
+rl.on('line', function(line){
+    line.trim().split(' ').forEach(function(word){
+        console.log(word);
+    });
+});

@@ -1,0 +1,24 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/revington/emr-nodejs-article.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/revington/emr-nodejs-article/issues"
+  },
+  "homepage": "https://github.com/revington/emr-nodejs-article#readme",
+  "description": "",
+  "bin": {
+    "mapper": "./bin/mapper",
+    "reducer": "./bin/reducer"
+  }
+}
