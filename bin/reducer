@@ -1,28 +1,31 @@
 #!/usr/bin/env node
+
+var previousKey, counter;
+
 const readline = require('readline');
 const rl = readline.createInterface({
     input : process.stdin
 });
 
-var current, counter = 0;
-
 function print(){
-    console.log(current, counter);
+    console.log(`${previousKey}\t${counter}`);
 }
 
-function countWord(word) {
-    if(typeof current === 'undefined'){
-        current = word;
-        counter = 1;
+function countWord(line) {
+    let [currentKey, value] = line.split('\t');
+    value = +value;
+    if(typeof previousKey === 'undefined'){
+        previousKey = currentKey;
+        counter = value;
         return;
     }
-    if(current === word){
-        counter++;
+    if(previousKey === currentKey){
+        counter = counter + value;
         return;
     }
     print();
-    current = word;
-    counter = 1;
+    previousKey = currentKey;
+    counter = value;
 }
 
 process.stdin.on('end',function(){
