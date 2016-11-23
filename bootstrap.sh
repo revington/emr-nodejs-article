@@ -1,5 +1,4 @@
 #!/bin/bash
-PATH=$PATH:/usr/local/bin
 NODE_VERSION=6.9.1
 GITHUB_USER='revington'
 GITHUB_REPO='emr-nodejs-article'
@@ -9,9 +8,8 @@ function install {
   local install_dir="/opt/$GITHUB_REPO"
   sudo mkdir -p "$install_dir"
   curl -vSL "https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/tarball/master" | sudo tar xz -C $install_dir --strip-components=1
-  pushd "$install_dir"
-  /usr/local/bin/npm install -g .
-  popd
+  sudo ln -s "$install_dir/bin/mapper" /usr/local/bin/mapper
+  sudo ln -s "$install_dir/bin/reducer" /usr/local/bin/reducer
 }
 
 # Install node
