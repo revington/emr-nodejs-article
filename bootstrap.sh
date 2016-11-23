@@ -1,4 +1,5 @@
 #!/bin/bash
+PATH=$PATH:/usr/local/bin
 NODE_VERSION=6.9.1
 GITHUB_USER='revington'
 GITHUB_REPO='emr-nodejs-article'
